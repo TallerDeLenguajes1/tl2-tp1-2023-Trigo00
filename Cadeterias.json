@@ -1,0 +1,92 @@
+[
+    {
+        "Nombre": "Cadetería Central",
+        "Telefono": "555-0000",
+        "ListadoCadetes": [
+            {
+                "Id": 101,
+                "Nombre": "Juan Pérez",
+                "Direccion": "Calle Falsa 123",
+                "Telefono": "555-1111",
+                "PedidosCadete": [
+                    {
+                        "Nro": 1,
+                        "Obs": "Pedido A",
+                        "Cliente": {
+                            "Nombre": "Trigo Nicolas",
+                            "Direccion": "Calle Falsa 123",
+                            "Telefono": "555-1111",
+                            "DatosReferenciaDireccion": "Cerca del parque"
+                        },
+                        "Estado": "Entregado"
+                    },
+                    {
+                        "Nro": 2,
+                        "Obs": "Pedido B",
+                        "Cliente": {
+                            "Nombre": "Velaztiqui Mauro",
+                            "Direccion": "Avenida Siempre Viva 742",
+                            "Telefono": "555-2222",
+                            "DatosReferenciaDireccion": "Cerca de la tienda"
+                        },
+                        "Estado": "Pendiente"
+                    }
+                ]
+            },
+            {
+                "Id": 102,
+                "Nombre": "Maria López",
+                "Direccion": "Avenida Siempre Viva 742",
+                "Telefono": "555-2222",
+                "PedidosCadete": [
+                    {
+                        "Nro": 3,
+                        "Obs": "Pedido C",
+                        "Cliente": {
+                            "Nombre": "Nieva Luciano",
+                            "Direccion": "Simoca",
+                            "Telefono": "555-222525252",
+                            "DatosReferenciaDireccion": "Alla cerca del campo"
+                        },
+                        "Estado": "Entregado"
+                    }
+                ]
+            }
+        ],
+        "ListadoPedidos": [
+            {
+                "Nro": 1,
+                "Obs": "Pedido urgente",
+                "Cliente": {
+                    "Nombre": "Trigo Nicolas",
+                    "Direccion": "Calle Falsa 123",
+                    "Telefono": "555-1111",
+                    "DatosReferenciaDireccion": "Cerca del parque"
+                },
+                "Estado": "Pendiente"
+            },
+            {
+                "Nro": 2,
+                "Obs": "Pedido normal",
+                "Cliente": {
+                    "Nombre": "Velaztiqui Mauro",
+                    "Direccion": "Avenida Siempre Viva 742",
+                    "Telefono": "555-2222",
+                    "DatosReferenciaDireccion": "Cerca de la tienda"
+                },
+                "Estado": "Pendiente"
+            },
+            {
+                "Nro": 3,
+                "Obs": "Pedido agrandado",
+                "Cliente": {
+                    "Nombre": "Nieva Luciano",
+                    "Direccion": "Simoca",
+                    "Telefono": "555-222525252",
+                    "DatosReferenciaDireccion": "Alla cerca del campo"
+                },
+                "Estado": "Entregado"
+            }
+        ]
+    }
+]

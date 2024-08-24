@@ -1,29 +1,43 @@
-class Cadete
+public class Cadete
 {
-    private int id;
-    private string nombre;
-    private string direccion;
-    private string telefono;
-    private List<Pedidos> listadoPedidos;
+    public int Id { get; set; }
+    public string Nombre { get; set; }
+    public string Direccion { get; set; }
+    public string Telefono { get; set; }
+    public List<Pedido> PedidosCadete { get; set; }
 
-    public int Id { get => id; set => id = value; }
-    public string Nombre { get => nombre; set => nombre = value; }
-    public string Direccion { get => direccion; set => direccion = value; }
-    public string Telefono { get => telefono; set => telefono = value; }
-    public List<Pedidos> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
-
-    public double JornalACobrar(List<Pedidos> listadoPedidos)
+    public double JornalACobrar()
     {
         int contador = 0;
-        foreach (var item in listadoPedidos)
+        foreach (var item in PedidosCadete)
         {
-            if (item.Estado == Pedidos.EstadoPedido.Entregado)
+            if (item.Estado == "Entregado")
             {
                 contador++;
             }
         }
 
         return contador * 500;
+    }
+
+    public void AgregarPedido(Pedido pedido)
+    {
+        PedidosCadete.Add(pedido);
+    }
+
+    public void EliminarPedido(Pedido pedido)
+    {
+        PedidosCadete.Remove(pedido);
+    }
+
+    public int ObtenerPedidosTotales()
+    {
+        return PedidosCadete.Count();
+    }
+
+    public bool TienePedido(Pedido pedido)
+    {
+        return PedidosCadete.Contains(pedido);
     }
 }
 
