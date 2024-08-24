@@ -1,10 +1,15 @@
 
 public class Cadeteria
 {
-    public string Nombre { get; set; }
-    public string Telefono { get; set; }
-    public List<Cadete> ListadoCadetes{ get; set; }
-    public List<Pedido> ListadoPedidos{ get; set; }
+    private string nombre;
+    private string telefono;
+    private List<Cadete> listadoCadetes;
+    private List<Pedido> listadoPedidos;
+
+    public string Nombre { get => nombre; set => nombre = value; }
+    public string Telefono { get => telefono; set => telefono = value; }
+    public List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
+    public List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
     public void AsignarPedido(Cadete cadete, Pedido pedido)
     {

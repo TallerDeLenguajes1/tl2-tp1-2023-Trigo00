@@ -1,10 +1,16 @@
 public class Cadete
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; }
-    public string Direccion { get; set; }
-    public string Telefono { get; set; }
-    public List<Pedido> PedidosCadete { get; set; }
+    private int id;
+    private string nombre;
+    private string direccion;
+    private string telefono;
+    private List<Pedido> pedidosCadete;
+
+    public int Id { get => id; set => id = value; }
+    public string Nombre { get => nombre; set => nombre = value; }
+    public string Direccion { get => direccion; set => direccion = value; }
+    public string Telefono { get => telefono; set => telefono = value; }
+    public List<Pedido> PedidosCadete { get => pedidosCadete; set => pedidosCadete = value; }
 
     public double JornalACobrar()
     {
