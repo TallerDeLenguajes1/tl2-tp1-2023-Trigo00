@@ -3,39 +3,41 @@ public class Cadeteria
 {
     private string nombre;
     private string telefono;
+    private string direccion;
     private List<Cadete> listadoCadetes;
-    private List<Pedido> listadoPedidos;
 
     public string Nombre { get => nombre; set => nombre = value; }
     public string Telefono { get => telefono; set => telefono = value; }
+    public string Direccion { get => direccion; set => direccion = value; }
     public List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
-    public List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
-    public void AsignarPedido(Cadete cadete, Pedido pedido)
-    {
-        cadete.AgregarPedido(pedido);
-        ListadoPedidos.Add(pedido);
-    }
+    //public List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
-    public void ReasignarPedido(Pedido pedido, Cadete nuevoCadete)
-    {
-        var cadeteAnterior = ListadoCadetes.FirstOrDefault(c => c.TienePedido(pedido));
-        if (cadeteAnterior != null)
-        {
-            cadeteAnterior.EliminarPedido(pedido);
-        }
-        nuevoCadete.AgregarPedido(pedido);
-    }
+    // public void AsignarPedido(Cadete cadete, Pedido pedido)
+    // {
+    //     cadete.AgregarPedido(pedido);
+    //     ListadoPedidos.Add(pedido);
+    // }
 
-    public void EliminarPedido2(Pedido pedido)
-    {
-        var cadete = ListadoCadetes.FirstOrDefault(c => c.TienePedido(pedido));
-        if (cadete != null)
-        {
-            cadete.EliminarPedido(pedido);
-        }
-        ListadoPedidos.Remove(pedido);
-    }
+    // public void ReasignarPedido(Pedido pedido, Cadete nuevoCadete)
+    // {
+    //     var cadeteAnterior = ListadoCadetes.FirstOrDefault(c => c.TienePedido(pedido));
+    //     if (cadeteAnterior != null)
+    //     {
+    //         cadeteAnterior.EliminarPedido(pedido);
+    //     }
+    //     nuevoCadete.AgregarPedido(pedido);
+    // }
+
+    // public void EliminarPedido2(Pedido pedido)
+    // {
+    //     var cadete = ListadoCadetes.FirstOrDefault(c => c.TienePedido(pedido));
+    //     if (cadete != null)
+    //     {
+    //         cadete.EliminarPedido(pedido);
+    //     }
+    //     ListadoPedidos.Remove(pedido);
+    // }
 
     public void GenerarInforme()
     {
