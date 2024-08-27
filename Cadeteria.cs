@@ -11,6 +11,11 @@ public class Cadeteria
     public string Direccion { get => direccion; set => direccion = value; }
     public List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
 
+    public Cadeteria()
+    {
+        ListadoCadetes = new List<Cadete>();
+    }
+
     //public List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
     // public void AsignarPedido(Cadete cadete, Pedido pedido)

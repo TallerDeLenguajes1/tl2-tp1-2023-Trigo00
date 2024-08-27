@@ -11,6 +11,14 @@ public class Pedido
     public Cliente Cliente { get => cliente; set => cliente = value; }
     public Estado EstadoPedido { get => estadoPedido; set => estadoPedido = value; }
 
+    public Pedido(int idP, string obsP, Cliente clienteP, Estado estadoP)
+    {
+        Nro = idP;
+        Obs = obsP;
+        Cliente = clienteP;
+        EstadoPedido = estadoP;
+    }
+
     public string VerDireccionCliente(Cliente miCliente)
     {
         return miCliente.Direccion;

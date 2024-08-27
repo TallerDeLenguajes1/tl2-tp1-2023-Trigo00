@@ -6,8 +6,12 @@ public class Cadete
     private string telefono;
     private List<Pedido> listadoPedidos;
 
-    public Cadete()
+    public Cadete(int idC, string nombreC, string direccionC, string telefonoC)
     {
+        Id = idC;
+        Nombre = nombreC;
+        Direccion = direccionC;
+        Telefono = telefonoC;
         ListadoPedidos = new List<Pedido>();
     }
 
