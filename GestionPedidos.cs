@@ -18,7 +18,8 @@ public class GestionPedidos
             Console.WriteLine("3. Cambiar estado de pedido");
             Console.WriteLine("4. Reasignar pedido a otro cadete");
             Console.WriteLine("5. Mostrar info");
-            Console.WriteLine("6. Salir");
+            Console.WriteLine("6. Mostrar Informe");
+            Console.WriteLine("7. Salir");
             Console.Write("Seleccione una opción: ");
             opcion = Console.ReadLine();
 
@@ -26,32 +27,30 @@ public class GestionPedidos
             {
                 case "1":
                     DarDeAltaPedido();
-                    MostrarMenu();
                     break;
                 case "2":
                     AsignarPedidoACadete();
-                    MostrarMenu();
                     break;
                 case "3":
                     CambiarEstadoPedido();
-                    MostrarMenu();
                     break;
                 case "4":
                     ReasignarPedido();
-                    MostrarMenu();
                     break;
                 case "5":
                     MostrarPedidos();
-                    MostrarMenu();
                     break;
                 case "6":
+                    GenerarInforme();
+                    break;
+                case "7":
                     Console.WriteLine("Saliendo del sistema...");
                     break;
                 default:
                     Console.WriteLine("Opción no válida. Intente nuevamente.");
                     break;
             }
-        } while (opcion != "5");
+        } while (opcion != "7");
     }
 
     private void DarDeAltaPedido()
@@ -72,7 +71,6 @@ public class GestionPedidos
         Cliente nuevoCliente = new Cliente(nombreCliente, direccionCliente, telefonoCliente, referencia);
         Pedido nuevoPedido = new Pedido(nroPedido, observaciones, nuevoCliente, Pedido.Estado.Pendiente);
 
-        // Aquí puedes preguntar al usuario a qué cadete asignar el pedido
         Console.Write("Ingrese el ID del cadete al que se le asignará el pedido: ");
         int idCadete = int.Parse(Console.ReadLine());
         Cadete cadete = miCadeteria.ListadoCadetes.FirstOrDefault(c => c.Id == idCadete);
@@ -90,7 +88,6 @@ public class GestionPedidos
 
     private void AsignarPedidoACadete()
     {
-        // Este método podría ser utilizado si deseas cambiar la asignación de un pedido ya existente.
         Console.Write("Ingrese el número del pedido a asignar: ");
         int nroPedido = int.Parse(Console.ReadLine());
         Pedido pedido = BuscarPedidoPorNumero(nroPedido);
@@ -233,6 +230,30 @@ public class GestionPedidos
                 Console.WriteLine("");
             }
         }
+    }
 
+     private void GenerarInforme()
+    {
+        Console.WriteLine("=== Informe de Pedidos - Fin de Jornada ===\n");
+
+        // Calcular el monto ganado y la cantidad de envíos de cada cadete
+        foreach (var cadete in miCadeteria.ListadoCadetes)
+        {
+            int cantidadEnvios = cadete.ListadoPedidos.Count;
+            double montoGanado = cadete.JornalACobrar(); 
+            Console.WriteLine($"Cadete: {cadete.Nombre}");
+            Console.WriteLine($"Cantidad de Envíos: {cantidadEnvios}");
+            Console.WriteLine($"Monto Ganado: ${montoGanado}\n");
+        }
+
+        // Calcular el total de envíos de todos los cadetes
+        int totalEnvios = miCadeteria.ListadoCadetes.Sum(c => c.ListadoPedidos.Count);
+
+        // Calcular el promedio de envíos por cadete
+        double promedioEnvios = miCadeteria.ListadoCadetes.Count > 0 ? (double)totalEnvios / miCadeteria.ListadoCadetes.Count : 0;
+
+        Console.WriteLine("=== Resumen ===");
+        Console.WriteLine($"Total de Envíos: {totalEnvios}");
+        Console.WriteLine($"Promedio de Envíos por Cadete: {promedioEnvios:F2}\n");
     }
 }
